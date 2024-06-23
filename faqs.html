@@ -1,0 +1,483 @@
+<html>
+    <head>
+    
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            
+        }    
+        body{
+            font:14px/20px arial, san-serif;
+            margin: 0;
+        }
+        h1{
+            text-align: center;
+            font-size: 180%;
+            line-height: 120%;
+            padding: 1% 0;
+        }
+        h2{
+            text-decoration: underline;
+            line-height: 280%;
+            padding-left: 2%;
+        }
+        h3{
+            line-height: 110%;
+            padding: 5% 0;
+        }
+        h4{
+            text-align: center;
+            margin-top: -4%;
+        }
+        p{
+            padding: 1%;
+        }
+        img{
+            text-align: center;
+            max-width: 100%;
+            height: auto;
+            width: auto;
+        }
+        nav a{
+            color:white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover{
+            color: #c50303;
+            border-bottom: 2px solid white;
+        }
+        header{
+            width: 100%;
+            height: 80px;
+            position: fixed;
+            top:0;
+            left: 0;
+            z-index: 100;
+            transition: background-color 0.3s ease;
+        }
+        header.scrolled {
+            background-color: #FFF;
+        }
+        header ul li a {
+            font-family: 'Lato' sans-serif;
+            color: #777;
+        }
+        #logo{
+            margin: 10px;
+            margin-top: -28px;
+            float: left;
+            width: 130px;
+            height: 130px;
+            background: url(logo4.png) no-repeat center;
+            background-size: contain;
+        }
+        nav{
+            float: right;
+            padding: 35px 20px 20px 0px;
+        }
+        ul{
+            list-style: none;
+        }
+        nav ul li{
+            display:inline-block;
+            float: left;
+            padding: 10px;
+        }
+        .current{
+            color:#c50303;
+            border-bottom: 2px solid white;
+        }
+        section{
+            width: 29%;
+            float: left;
+            margin: 2% 2%;
+            text-align: center;
+        }
+        .clear{
+            clear: both;
+        }
+        footer{
+            background-color: slategray;
+            width: 100%;
+            overflow: hidden;
+        }
+        footer p,footer h3{
+            color: white;
+        }
+        footer p a{
+            color: white;
+            text-decoration: none;
+        }
+        
+        ul.social li{
+            display: inline;
+        }
+        ul.social li  img{
+            height: 40px;
+        }
+        
+        #user{
+            height: 8px;
+            width: 8px;
+            border: 2px solid #FFA414;
+            border-radius: 25px;
+           margin-right: -10px;
+        }
+        #user1{
+            height:10px;
+            width:10px;
+            margin-top: -1px;
+            margin-left: -1px;
+            display: none;
+            background-color:#FFA414;
+            border-radius: 25px;
+           
+        }
+        #agent{
+            height: 8px;
+            width: 8px;
+            border: 2px solid #FFA414;
+            border-radius: 25px;
+           margin-right: -10px;
+        }
+        #agent1{
+            height:10px;
+            width:10px;
+            margin-top: -1px;
+            margin-left: -1px;
+            display: none;
+            background-color:#FFA414;
+            border-radius: 25px;
+        
+        }
+        #form{
+            width: 100%;
+            background:white;
+            margin-left: 0px;
+            margin-top: 150px;
+            margin-bottom: 70px;
+        }
+        #uid input{
+            height: 30px;
+            width: 316px;
+            outline: none;
+            padding-left: 5px;
+            background: transparent;
+            color: white;
+            border: none;
+            box-shadow: 0px 0px 1px white;
+        }
+        #uid input:focus{
+            box-shadow: 0px 0px 1px #FFA414;
+        }
+        #pass input{
+            height: 30px;
+            width: 316px;
+            outline: none;
+            padding-left: 5px;
+            background: transparent;
+            color: white;
+            border: none;
+            box-shadow: 0px 0px 1px white;
+        }
+        #pass input:focus{
+            box-shadow: 0px 0px 1px #FFA414;
+        }
+        #login input{
+            height: 35px;
+            width: 316px;
+            background-color: #FFA414;
+            font:16px arial;
+            font-weight: bold;
+            color: white;
+            border: none;
+            outline: none;
+             cursor: pointer;
+        }
+        #from,#to,#bookdate,#arrivaldate{    
+            background-color: #FFA414; 
+        }
+        #from input,#to input,#bookdate input,#arrivaldate input{
+            height: 20px;
+            width: 158px;
+            font:14px arial;
+            font-weight: bold;
+            color: white;
+            border: none;
+            outline: none;
+            background-color: #FFA414;
+            margin-top: -3px;
+            
+        }
+        #fromimg,#toimg,#bookdateimg,#arrivaldateimg,#cancelimg{
+            height: 30px;
+            width: 30px;
+            margin-top: 5px;
+        }
+       
+         #from1{
+            height: 35px;
+            width: 158px;
+            background-color: white;
+            font:14px arial;
+            font-weight: bold;
+            color: #101010;
+            border: none;
+            outline: none;
+             
+        }
+        #to1{
+            height: 35px;
+            width: 158px;
+            background-color: white;
+            font:14px arial;
+            font-weight: bold;
+            color: #101010;
+            border: none;
+            outline: none;
+             
+        }
+        #bookdate1{
+            height: 35px;
+            width: 158px;
+            background-color: white;
+            font:14px arial;
+            font-weight: bold;
+            color: #101010;
+            border: none;
+            outline: none;
+             
+        }
+        #arrivaldate1{
+            height: 35px;
+            width: 158px;
+            background-color: white;
+            font:14px arial;
+            font-weight: bold;
+            color: #101010;
+            border: none;
+            outline: none;
+             
+        }
+        section table{
+            background: #282828;
+            padding: 30px;
+            color: white;
+            box-shadow: 0px 0px 7px black;
+        }
+        #titletext{
+            font-size: 20px;
+            background-color: #282828;
+            text-transform: uppercase;
+            color: white;
+            height: 40px;
+            width: 300px;
+            padding: 10px;
+            padding-top: 15px;
+            margin-bottom: -15px;
+            font-family: arial;
+            margin-left: 38%;
+            border-radius: 15px 15px 0 0;
+           
+        }
+        #disclaimer {
+            text-align: center;
+        }
+
+        #disclaimer-content {
+            background-color: #c50303;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            padding: 15px;
+            width: 30%;
+            display: inline-block;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        #disclaimer-content p {
+            margin: 0;
+            display: inline;
+            color: white;
+            font-size: 12px;
+        }
+        #disclaimer-content a:hover {
+            color: rgba(27, 39, 61, 0.99);
+        }
+        body #faq {
+            font: 14px/20px Arial, sans-serif;
+            margin-top: 150px;
+            margin-left: 250px;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+        }
+      
+        .faq-container {
+            width: 1000px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            text-align: center;
+            margin-bottom: 0;
+        }
+        .faq-container h1 {
+            text-align: center;
+            font-size: 180%;
+            line-height: 120%;
+            padding: 1% 0;
+        }
+        .faq-container h2 {
+            text-decoration: none;
+        }
+        .faq-item {
+            border: 1px solid #ebebeb;
+            background-color: #f6f6f6;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .faq-item h2 {
+            cursor: pointer;
+            margin: 0;
+        }
+        .faq-item h2::after {
+            content: '\25BC';
+            float: right;
+        }
+        .faq-item.open h2::after {
+            content: '\25B2';
+        }
+        .faq-item p {
+            display: none;
+            padding: 10px;
+        }
+        footer a:hover {
+            color: #c50303;
+        }
+
+</style>
+
+    <script src="jquery-1.10.2.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            $(".faq-item h2").click(function () {
+                // Toggle the class 'open' on the parent .faq-item
+                $(this).parent(".faq-item").toggleClass("open");
+                // Toggle the answer with a slide animation
+                $(this).next(".faq-item p").slideToggle();
+            });
+        });
+        
+        $(document).ready(function(){
+            var flag1=0;
+            var flag2=0;
+          
+           $("#user").click(function(){
+                $("#user1").css("display","block");
+                $("#agent1").css("display","none");
+                       
+           }) ;
+               
+             $("#agent").click(function(){
+               $("#agent1").css("display","block");
+               $("#user1").css("display","none");
+           }) ;
+        });
+    </script>
+        
+        
+    </head>
+    <body>
+        <header style="box-shadow: 0 3px 20px 1px rgba(31, 31, 31, 0.07);">
+            <a href="home.html" id="logo"></a>
+            <nav>
+                <ul>
+                    <li><a href="home.html">HOME</a></li>
+                    <li><a href="Buses.html">ROUTES</a></li>
+                    <li><a href="Ad.html">ADVERTISEMENT</a></li>
+                    <li><a href="Availability.html">AVAILABLE BUSES</a></li>
+                    <li><a href="faqs.html" class="current">FAQS</a></li>
+                    <li><a href="contact_us.html">CONTACT US</a></li>
+                <li><a href="login.html">LOG IN</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        
+        <div id="faq">
+        <div class="faq-container-wrapper">
+        <div class="faq-container">
+        <h1>Frequently Asked Questions</h1>
+        <div class="faq-item">
+            <h2>What is the fare of one ride?</h2>
+            <p>People’s Bus Service has fixed fare structure of Pakistani Rupees 50 per person per ride, except for Route 9 which has fare of PKR 100 after Malir Halt.</p>
+        </div>
+        <div class="faq-item">
+            <h2>What are the operational timings of people bus service?</h2>
+            <p>Bus Service starts from 7 am in the morning and runs till 8-9 pm at night.</p>
+        </div>
+        <div class="faq-item">
+            <h2>Can I make transfer in between two routes to reach my destination?</h2>
+            <p>Yes, you can make transfer in between two routes to reach your destination, however, you need to buy separate ticket for each ride.</p>
+        </div>
+        <div class="faq-item">
+            <h2>Does the Red Bus Service operate on Saturday, Sunday and on Public Holidays?</h2>
+            <p>Yes, Red Bus Service Karachi operates on Saturday, Sunday and during Public Holidays.<p>
+        </div>
+        <form id="seatSelectionForm" action="contact_us.html" method="post">
+            <div style="padding-left: 20px; text-align: center;">
+                <button type="submit" style="background: #800080; color: #fff; padding: 10px 20px; border: none; border-radius: 3px; cursor: pointer; margin-top: 20px;">Do You Have Any Other Questions?</button>
+            </div>
+ <br>
+            <div style="text-align: center;">
+                <img src="info.jpg" alt="Description of your image" style="margin-top: 2px; width: 900px; height: auto; border: 2px; border-radius: 10px; margin-bottom: 50px;">
+            </div> 
+    </div>
+</div>
+<br>
+</div>
+
+
+       
+   
+        
+      
+        
+  
+<footer>
+    <section>
+        <h3><b>RED BUS</b></h3>
+        <p>
+            <b><a href="home.html">HOME</a></b><br>
+            <b><a href="Buses.html">ROUTES</a></b><br>
+            <b><a href="Ad.html">ADVERTISEMENT</a></b><br>
+            <b><a href="Availability.html">AVAILABLE BUSES</a></b><br>
+            <b><a href="contact_us.html">CONTACT US</a></b><br>
+            <b><a href="login.html">LOG IN</a></b><br>
+        </p>
+    </section>
+    <section>
+        <h3>CONNECT WITH US!</h3>
+        <ul class="social">
+                <li><a href="#"><img src="Facebook.png"/></a></li>
+                <li><a href="#"><img src="Google.png"/></a></li>
+                <li><a href="#"><img src="Twitter.png"/></a></li>
+        </ul>
+    </section>
+    <section id="footerlogo">
+        <img src="logo4.png" style="width: 70%;" />
+    </section>
+    <div id="disclaimer">
+        <div id="disclaimer-content">
+            <p><a href="#">&copy; 2023</a></p>
+            <p><a href="#">Legal Notice</a></p>
+            <p><a href="#">Terms and Conditions</a></p>
+        </div>
+    </div>    
+</footer>
+    </body>
+</html>
